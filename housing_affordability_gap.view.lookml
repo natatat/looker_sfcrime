@@ -2,7 +2,8 @@
   fields:
 
   - dimension: down_payment
-    sql: ${TABLE}.down_payment
+    type: int
+    sql: cast(${TABLE}.down_payment as UNSIGNED)
 
   - dimension: income_d
     type: int

@@ -1,25 +1,36 @@
 - view: income
-  fields:
+  derived_table:
+    sql: |
+      SELECT 
+        income.medinc_d AS medinc_d,
+        income.medinc_moe AS medinc_moe,
+        income.pc_inc_d AS pc_inc_d,
+        income.pc_inc_moe AS pc_inc_moe,
+        income.TRACT2000 AS tract2000
+      FROM income
+      GROUP BY 1,2,3,4,5
 
-  - dimension: medinc_d
+  fields:
+  - dimension: median_income_d
     type: int
     sql: ${TABLE}.medinc_d
 
-  - dimension: medinc_moe
+  - dimension: median_income_moe
     sql: ${TABLE}.medinc_moe
 
-  - dimension: pc_inc_d
+  - dimension: percent_increase_d
     type: int
     sql: ${TABLE}.pc_inc_d
 
-  - dimension: pc_inc_moe
+  - dimension: percent_increase_moe
     sql: ${TABLE}.pc_inc_moe
 
-  - dimension: tract2000
+  - dimension: tract_2000
     type: int
     sql: ${TABLE}.TRACT2000
 
   - measure: count
     type: count
     drill_fields: []
+    
 

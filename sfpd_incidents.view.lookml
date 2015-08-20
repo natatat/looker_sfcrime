@@ -20,8 +20,18 @@
     type: number
     sql: ${TABLE}.IncidntNum
 
-  - dimension: location
-    sql: ${TABLE}.Location
+#   - dimension: location
+#     sql: ${TABLE}.Location
+# 
+#   - dimension: location
+#     type: location
+#     sql_latitude: cast(SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.Location,',',1),'(',-1) as decimal)
+#     sql_longitude: cast(SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.Location,',',-1),')',1) as decimal)
+
+#   - dimension: location
+#     type: location
+#     sql_latitude: cast(SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.Location,',',1),'(',-1) as decimal)
+#     sql_longitude: cast(SUBSTRING_INDEX(SUBSTRING_INDEX(${TABLE}.Location,',',-1),')',1) as decimal)
 
   - dimension: pd_district
     sql: ${TABLE}.PdDistrict
@@ -34,6 +44,7 @@
     sql: ${TABLE}.Resolution
 
   - dimension: time
+    type: datetime
     sql: ${TABLE}.Time
 
   - dimension: x
@@ -44,5 +55,5 @@
 
   - measure: count
     type: count
-    drill_fields: []
+    drill_fields: [category,count]
 

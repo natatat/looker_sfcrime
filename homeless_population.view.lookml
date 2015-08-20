@@ -1,6 +1,6 @@
 - view: homeless_population
-  fields:
 
+  fields:
   - dimension: pop_count
     type: int
     sql: ${TABLE}.count
@@ -10,12 +10,13 @@
     sql: ${TABLE}.district_id
 
   - dimension: percentage
-    sql: ${TABLE}.percentage
-
-  - dimension: pt
-    sql: ${TABLE}.pt
+    type: int
+    sql: cast(${TABLE}.percentage as UNSIGNED)
+# 
+#   - dimension: pt
+#     sql: ${TABLE}.pt
 
   - measure: count
     type: count
-    drill_fields: []
+    drill_fields: [pop_count, percentage]
 

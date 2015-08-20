@@ -18,12 +18,20 @@
 
   - dimension: media_url
     sql: ${TABLE}.`Media URL`
+    html: |
+      <a href="{{ 311_cases.media_url._value }}" target="_new">{{ value }}</a>
 
   - dimension: neighborhood
     sql: ${TABLE}.Neighborhood
-
-  - dimension: opened
+    
+  - dimension: opened_datetime
+    type: datetime
     sql: ${TABLE}.Opened
+
+  - dimension_group: opened
+    type: time
+    timeframes: [date, week, month]
+    sql: ${opened_datetime}
 
   - dimension: point
     sql: ${TABLE}.Point
@@ -52,5 +60,5 @@
 
   - measure: count
     type: count
-    drill_fields: []
+    drill_fields: [case_id,category,opened,neighborhood,address,request_details,media_url,status]
 
