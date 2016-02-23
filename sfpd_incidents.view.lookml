@@ -35,6 +35,11 @@
 
   - dimension: time
     sql: ${TABLE}.Time
+  
+  - dimension_group: datetime_test
+    timeframes: [time, date, week]
+    sql: CONCAT(CONCAT(CONCAT(CONCAT(substring(${date},7,4), '-'), CONCAT(CONCAT(substring(${date},1,2),'-'), substring(${date},4,2))), ' '), ${time})
+    type: time
 
   - dimension: x
     sql: ${TABLE}.X
