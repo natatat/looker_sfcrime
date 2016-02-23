@@ -20,8 +20,8 @@
     type: number
     sql: ${TABLE}.IncidntNum
 
-#  - dimension: location
-#    sql: ${TABLE}.Location
+  - dimension: location
+    sql: ${TABLE}.Location
 
   - dimension: pd_district
     sql: ${TABLE}.PdDistrict
@@ -42,7 +42,7 @@
   - dimension: y
     sql: ${TABLE}.Y
 
-  - dimension: location
+  - dimension: location_mapable
     type: location
     sql_latitude: ${y}
     sql_longitude: ${x}
