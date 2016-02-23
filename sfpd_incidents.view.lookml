@@ -6,6 +6,11 @@
 
   - dimension: category
     sql: ${TABLE}.Category
+    
+  - dimension: violent
+    type: yesno
+    sql: ${category} = "WEAPON LAWS" OR "ASSAULT" OR "ROBBERY" OR "SEX OFFENSES, FORCIBLE" OR "KIDNAPPING"
+      
 
   - dimension: date
     sql: ${TABLE}.Date
