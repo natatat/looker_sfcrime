@@ -6,6 +6,11 @@
 
   - dimension: category
     sql: ${TABLE}.Category
+    
+  - dimension: violent
+    type: yesno
+    sql: ${category} = "WEAPON LAWS" OR "ASSAULT" OR "ROBBERY" OR "SEX OFFENSES, FORCIBLE" OR "KIDNAPPING"
+      
 
   - dimension: date
     sql: ${TABLE}.Date
@@ -46,12 +51,22 @@
   - dimension: time
     type: datetime
     sql: ${TABLE}.Time
+  
+  - dimension_group: datetime
+    timeframes: [time, date, week]
+    sql: CONCAT(CONCAT(CONCAT(CONCAT(substring(${date},7,4), '-'), CONCAT(CONCAT(substring(${date},1,2),'-'), substring(${date},4,2))), ' '), ${time})
+    type: time
 
   - dimension: x
     sql: ${TABLE}.X
 
   - dimension: y
     sql: ${TABLE}.Y
+
+  - dimension: location_mapable
+    type: location
+    sql_latitude: ${y}
+    sql_longitude: ${x}
 
   - measure: count
     type: count
