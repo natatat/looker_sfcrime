@@ -42,7 +42,7 @@
     sql: ${TABLE}.PdDistrict
 
   - dimension: pd_id
-    type: int
+    type: number
     sql: ${TABLE}.PdId
 
   - dimension: resolution

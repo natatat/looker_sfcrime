@@ -7,7 +7,7 @@
     sql: ${TABLE}.Address
 
   - dimension: case_id
-    type: int
+    type: number
     sql: ${TABLE}.CaseID
 
   - dimension: category
@@ -52,7 +52,7 @@
     sql: ${TABLE}.Status
 
   - dimension: supervisor_district
-    type: int
+    type: number
     sql: ${TABLE}.`Supervisor District`
 
   - dimension: updated

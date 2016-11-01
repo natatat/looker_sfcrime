@@ -2,34 +2,34 @@
   fields:
 
   - dimension: down_payment
-    type: int
+    type: number
     sql: cast(${TABLE}.down_payment as UNSIGNED)
 
   - dimension: income_d
-    type: int
+    type: number
     sql: ${TABLE}.income_d
 
   - dimension: income_gap
-    type: int
+    type: number
     sql: ${TABLE}.income_gap
 
   - dimension: loan_amount
     sql: ${TABLE}.loan_amount
 
   - dimension: median_sale
-    type: int
+    type: number
     sql: ${TABLE}.median_sale
 
   - dimension: medinc_d
-    type: int
+    type: number
     sql: ${TABLE}.medinc_d
 
   - dimension: medinc_moe
-    type: int
+    type: number
     sql: ${TABLE}.medinc_moe
 
   - dimension: monthly
-    type: int
+    type: number
     sql: ${TABLE}.monthly
 
   - dimension: neighborhood
@@ -39,7 +39,7 @@
     sql: ${TABLE}.population_2010
 
   - dimension: sample_size
-    type: int
+    type: number
     sql: ${TABLE}.sample_size
 
   - dimension: shape_area

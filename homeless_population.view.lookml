@@ -2,15 +2,15 @@
 
   fields:
   - dimension: pop_count
-    type: int
+    type: number
     sql: ${TABLE}.count
 
   - dimension: district_id
-    type: int
+    type: number
     sql: ${TABLE}.district_id
 
   - dimension: percentage
-    type: int
+    type: number
     sql: cast(${TABLE}.percentage as UNSIGNED)
 # 
 #   - dimension: pt

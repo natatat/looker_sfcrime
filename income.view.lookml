@@ -12,21 +12,21 @@
 
   fields:
   - dimension: median_income_d
-    type: int
+    type: number
     sql: ${TABLE}.medinc_d
 
   - dimension: median_income_moe
     sql: ${TABLE}.medinc_moe
 
   - dimension: percent_increase_d
-    type: int
+    type: number
     sql: ${TABLE}.pc_inc_d
 
   - dimension: percent_increase_moe
     sql: ${TABLE}.pc_inc_moe
 
   - dimension: tract_2000
-    type: int
+    type: number
     sql: ${TABLE}.TRACT2000
 
   - measure: count

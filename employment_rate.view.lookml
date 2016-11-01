@@ -19,7 +19,7 @@
     sql: ${TABLE}.employed_percentage
 
   - dimension: tract_2000
-    type: int
+    type: number
     sql: ${TABLE}.TRACT2000
 
   - measure: count
